@@ -91,8 +91,18 @@ DATABASES = {
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
+DATABASES = {
+
+'default':{
+'ENGINE': 'django.db.backends.sqlite3', 
+'NAME': ' dbname',
+'USER': 'postgres',
+'PASSWORD': 'dbpass',
+'HOST': 'localhost',
+'PORT': '5432',
+    }
+}
 
 
 # Password validation
