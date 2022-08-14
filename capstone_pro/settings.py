@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1)zhf@4(89$fdp_@8nhgk95cvwzcbwwzwx!1dj5jtru0_1cms#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CSRF_TRUSTED_ORIGINS = ['https://kigali-films']
 
-ALLOWED_HOSTS = ['172.0.0.3','kigali-films1.herokuapp.com','youtube.com']
+ALLOWED_HOSTS = ['127.0.0.1','kigali-films1.herokuapp.com','youtube.com']
 
 CORS_ORIGIN_WHITELIST = ['https://kigali-films1']
 
@@ -48,11 +48,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     
 ]
