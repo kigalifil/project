@@ -33,7 +33,8 @@
       <small style="color: brown;font-family: 'Times New Roman'">Date_posted:{{ object.date_posted |date }}</small>
         <br><br><hr>
         <form action="{% url 'like_movies' posts.pk %}" method="POST">
-            {% csrf_token %}
+
+          {% csrf_token %}
             <table><tr><td>
             <button type="submit" name="movie_id" value="{{ posts.id }}" class="btn btn-success btn-block">Likes</button></td><td> <h3 style="color:yellow;">&nbsp;&nbsp;{{ total_likes }} Likes </h3></td></tr></table>
         </form>
@@ -61,7 +62,8 @@
               <a class="nav-item nav-link" href="{% url 'index' %}" style="font-size: 15px;">Home</a>
               <a class="nav-item nav-link" href="{% url 'info'%}" style="font-size: 15px;">About us</a>&nbsp;&nbsp;
                 <form method="POST" action="{% url 'search' %}">
-                 {% csrf_token %}
+
+                  {% csrf_token %}
                 <input type="search" name="searched" placeholder="Search.." class="search" style="color: #0d0d0d;margin-top: 7px">
                 <button type="submit" class="btn btn-success btn-block" style="color: #FFFFFF;width: 40%;">search</button>
                 </form>
