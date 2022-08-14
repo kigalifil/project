@@ -97,11 +97,11 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES = {
 
 'default':{
-'ENGINE': 'django.db.backends.sqlite3', 
-'NAME': ' dbname',
-'USER': 'postgres',
-'PASSWORD': 'dbpass',
-'HOST': 'localhost',
+'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+'NAME': 'daqthddqpqi9uu',
+'USER': 'juiiktcfkhacyl',
+'PASSWORD': '9903e828558a72029035c450562164a78cf84e157de23fdf20c29cdc5b1877b6',
+'HOST': 'ec2-44-206-137-96.compute-1.amazonaws.com',
 'PORT': '5432',
     }
 }
