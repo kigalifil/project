@@ -1,4 +1,4 @@
-
+ {% csrf_token %}
 
 
 {% load static %}
@@ -67,9 +67,8 @@
               <img src="{% static 'media/picture/log1.jpg' %}" alt="">
               <a class="nav-item nav-link" href="{% url 'index' %}" style="font-size: 15px;">Home</a>
               <a class="nav-item nav-link" href="{% url 'info'%}" style="font-size: 15px;">About us</a>&nbsp;&nbsp;
+              {% csrf_token %}
                 <form method="POST" action="{% url 'search' %}">
-
-                    {% csrf_token %}
                 <input type="search" name="searched" placeholder="Search.." class="search" style="color: #0d0d0d;margin-top: 7px">
                 <button type="submit" class="btn btn-success btn-block" style="color: #FFFFFF;width: 40%;">search</button>
                 </form>
