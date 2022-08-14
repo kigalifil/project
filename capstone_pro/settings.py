@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    
 ]
 
 ROOT_URLCONF = 'capstone_pro.urls'
@@ -89,11 +89,11 @@ DATABASES = {
         'NAME':'db.sqlite3',
     }
 }
-WHITENOISE_USE_FINDER = True
+
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-STATICFILES_STORAGE = 'whitenoise.storage.CmpressedManifestStaticFilesStorage'
+
 
 
 # Password validation
