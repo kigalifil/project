@@ -29,6 +29,7 @@ CSRF_TRUSTED_ORIGINS = ['https://kigali-films1']
 
 ALLOWED_HOSTS = ['172.0.0.3','kigali-films1.herokuapp.com','youtube.com']
 
+CORS_ORIGIN_WHITELIST = ['https://kigali-films1']
 
 # Application definition
 
