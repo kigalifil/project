@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1)zhf@4(89$fdp_@8nhgk95cvwzcbwwzwx!1dj5jtru0_1cms#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['https://kigali-films']
 
