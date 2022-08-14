@@ -1,0 +1,17 @@
+.come{
+    transition: 1s;
+    border-radius: 20px;
+
+}
+.come:hover{
+    transform: scale(1.3);
+}
+hr.new4 {
+  border: 1px solid white;
+}
+.divfooter{
+  height: 440px;
+  width: 100px;
+  background: #ffffff;
+}
+

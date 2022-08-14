@@ -1,0 +1,78 @@
+
+{% load static %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+</head>
+{% load crispy_forms_tags %}
+{% load static %}
+<body style="background-image: url('../static/picture/hero-bg.jpg');background-size: 100%;">
+
+  <div class="container my-4">
+
+    {% block content %}
+
+    {% if searched %}
+        <h4 style="color: #FFFFFF;font-family: 'Times New Roman'"> You searched for [{{ searched }}]</h4>
+        <br/>
+        {% for mv in movies %}
+            <a href="{% url 'post-detail' mv.id %}">
+             <table><tr><td>
+                <div style="width: 100px;height: 100px;border-radius: 20px;" ><img src="{{ mv.image.url }}" style="height: 100px;width: 100px;border-radius: 20px;"></div></td>
+                <td><h4 style="font-family: 'Lucida Calligraphy';color: skyblue">Name:{{ mv.title }}</h4>
+                <h4 style="font-family: 'Times New Roman';color: skyblue">Main Actor:{{ mv.movie_actor }}</h4>
+                    <small style="color: brown">Posted by:{{ mv.author }}</small></td>
+                 </tr>
+             </table>
+            </a>
+        {% endfor %}
+
+    {% else %}
+      
+    {% endif %}
+
+
+{% endblock content %}    </div>
+
+  </div>
+
+
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+
+          <a class="navbar-brand mr-4" href="#"><img src="{% static '../media/picture/logo1.jpg' %}" alt="" style="width: 150px ;height:60px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <img src="{% static 'media/picture/log1.jpg' %}" alt="">
+              <a class="nav-item nav-link" href="{% url 'index' %}" style="font-size: 15px;">Home</a>
+              <a class="nav-item nav-link" href="{% url 'info'%}" style="font-size: 15px;">About us</a>&nbsp;&nbsp;
+                <form method="POST" action="{% url 'search' %}">
+                 {% csrf_token %}
+                <input type="search" name="searched" placeholder="Search.." class="search" style="color: #0d0d0d;margin-top: 7px">
+                <button type="submit" class="btn btn-success btn-block" style="color: #FFFFFF;width: 40%;">search</button>
+                </form>
+            </div>
+
+            <div class="navbar-nav">
+                {% if user.is_authenticated %}
+                   <a class="btn btn-success btn-block" style="color: white" href="{% url 'post-create'%}">Share Movie</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <a class="btn btn-success btn-block" style="color: white" href="{% url 'profile'%}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <a class="btn btn-success btn-block" style="color: white" href="{% url 'logout'%}">Logout</a>
+                {% else %}
+                  <a class="btn btn-success btn-block" style="color: white" href="{% url 'login'%}">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="btn btn-success btn-block" style="color: white" href="{% url 'register'%}">Sinup!</a>
+                {% endif %}
+            </div>
